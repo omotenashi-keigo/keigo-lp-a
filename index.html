@@ -1858,6 +1858,34 @@ img,video,iframe,svg{max-width:100%}
   margin-bottom:30px;
 }
 .feelings-cta-btn{font-size:17px;padding:18px 40px}
+
+/* ============ 2026-07-06 追加④：機種による改行のバラつき対策 ============ */
+/* 見出し・キャッチコピー系に text-wrap:balance を適用し、
+   画面幅が変わっても行の長さが自動で均等になるようにする。
+   （手動<br>による「決め打ちの改行」は特定の画面幅でしか綺麗に見えないため、
+   ブラウザ側で自動調整させることで機種差を吸収する） */
+.hero-title,
+.section-title,
+.cd-first-note,
+.cd-title,
+.feelings-cta-headline,
+.mc-feature-title,
+.place-title,
+.cta-title,
+.origin-quote,
+.origin-emphasis,
+.way-title,
+.problem-question .q-text,
+.footer-tag{
+  text-wrap:balance;
+}
+.section-lead,
+.place-desc,
+.mc-feature-desc,
+.origin-body p,
+.problem-answer p{
+  text-wrap:pretty;
+}
 </style>
 </head>
 <body>
