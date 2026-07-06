@@ -1886,6 +1886,90 @@ img,video,iframe,svg{max-width:100%}
 .problem-answer p{
   text-wrap:pretty;
 }
+
+/* ============ 2026-07-07 追加：ドロップダウン化・フォーム外部化・余白圧縮 ============ */
+/* ---- 全体の上下余白を圧縮（LPを短く） ---- */
+section:not(.cd-section){padding:60px 0!important}
+@media(max-width:760px){section:not(.cd-section){padding:44px 0!important}}
+.hero{padding:112px 0 52px!important}
+.cta-main{padding:64px 0!important}
+.section-title{margin-bottom:18px!important}
+.section-lead{margin-bottom:40px!important}
+@media(max-width:760px){.section-lead{margin-bottom:30px!important}}
+
+/* ---- ヒーロー下の「イベント名」表記 ---- */
+.hero-mark{letter-spacing:0.1em!important;font-family:var(--sans)!important;opacity:0.85}
+.hero-mark b{color:var(--gold);font-weight:700;letter-spacing:0.15em}
+
+/* ---- 「こんな想い」カードをドロップダウン化（共創ブースと同じ設計＋押したくなる色） ---- */
+.problems-drops{display:flex;flex-direction:column;gap:14px;max-width:760px;margin:0 auto}
+details.problem-drop{border-radius:16px}
+.problem-toggle{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;
+  padding:18px 20px;border:3px solid var(--ink);border-radius:16px;
+  box-shadow:5px 5px 0 var(--gold);transition:transform .2s ease,box-shadow .2s ease;
+}
+.problem-toggle::-webkit-details-marker{display:none}
+.problem-toggle:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--gold)}
+details.problem-drop[open] .problem-toggle{border-radius:16px 16px 0 0}
+.problem-drop:nth-of-type(1) .problem-toggle{background:linear-gradient(135deg,#FF8A3D,#FF6B1A 55%,#E25510)}
+.problem-drop:nth-of-type(2) .problem-toggle{background:linear-gradient(135deg,#FFD25A,#FCB017 55%,#E8920E)}
+.problem-drop:nth-of-type(3) .problem-toggle{background:linear-gradient(135deg,#FF8FA0,#FF5C77 55%,#E23E5A)}
+.problem-toggle-titles{flex:1;min-width:0;text-align:left}
+.problem-toggle-tag{display:block;font-family:var(--sans-en);font-size:10px;font-weight:700;letter-spacing:0.2em;color:rgba(255,255,255,0.92);margin-bottom:4px}
+.problem-toggle-title{font-family:var(--display);font-size:clamp(18px,4.6vw,23px);font-weight:800;color:#fff;line-height:1.3}
+.problem-toggle-arrow{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:18px;transition:transform .3s ease}
+details.problem-drop[open] .problem-toggle-arrow{transform:rotate(180deg)}
+.problem-drop-body{background:#fff;border:3px solid var(--ink);border-top:none;border-radius:0 0 16px 16px;padding:22px 20px}
+
+/* ---- 「思いを、形にするランウェイ。」CTA：前後の余白を圧縮 ---- */
+.feelings-cta{padding:20px 24px 4px!important;margin-top:4px!important}
+.feelings-cta-deco{margin-bottom:14px!important}
+
+/* ---- タイムスケジュール：4Fブースをドロップダウンに ---- */
+details.schedule-drop{margin:24px 0 0}
+.schedule-drop-toggle{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;
+  font-family:var(--display);font-weight:800;font-size:clamp(20px,3.2vw,30px);color:var(--ink);
+  padding-bottom:12px;border-bottom:3px solid var(--coral);
+}
+.schedule-drop-toggle::-webkit-details-marker{display:none}
+.schedule-drop-arrow{
+  margin-left:auto;flex-shrink:0;width:34px;height:34px;border-radius:50%;
+  background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:15px;transition:transform .3s ease;
+}
+details.schedule-drop[open] .schedule-drop-arrow{transform:rotate(180deg)}
+.schedule-drop-note{font-size:13px;color:var(--ink-muted);margin-left:6px;font-family:var(--sans);font-weight:500}
+.schedule-drop-body{padding-top:20px}
+
+/* ---- 応募フォーム（Googleフォームへ誘導）ボタン ---- */
+.apply-formcta{max-width:600px;margin:0 auto;text-align:center}
+.apply-formcta-btn{
+  font-size:clamp(17px,4.6vw,20px);padding:22px 40px;width:100%;justify-content:center;
+  box-shadow:0 10px 30px rgba(255,107,26,0.5),inset 0 0 0 1px rgba(255,201,60,0.5)!important;
+}
+.apply-formcta-note{font-size:13px;color:var(--ink-muted);margin-top:14px;line-height:1.7}
+
+/* ---- 協賛募集をドロップダウンに ---- */
+.sponsor-drop{max-width:820px;margin:0 auto}
+.sponsor-toggle{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;
+  padding:22px 24px;border-radius:16px;
+  background:linear-gradient(135deg,#3A2F1C,#1F1B14);border:2px solid var(--gold);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.sponsor-toggle::-webkit-details-marker{display:none}
+.sponsor-toggle:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(212,160,36,0.3)}
+.sponsor-drop[open] .sponsor-toggle{border-radius:16px 16px 0 0}
+.sponsor-toggle-label{display:flex;flex-direction:column;gap:4px;text-align:left;flex:1;min-width:0}
+.sponsor-toggle-tag{font-family:var(--sans-en);font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--gold)}
+.sponsor-toggle-title{font-family:var(--display);font-size:clamp(17px,4.4vw,22px);font-weight:800;color:#fff;line-height:1.4}
+.sponsor-toggle-arrow{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:18px;transition:transform .3s ease}
+.sponsor-drop[open] .sponsor-toggle-arrow{transform:rotate(180deg)}
+.sponsor-drop-body{background:#fff;border:2px solid var(--gold);border-top:none;border-radius:0 0 16px 16px;padding:28px 22px}
+.sponsor-drop-body .sponsor-ways{margin-bottom:24px}
+.sponsor-drop-note-after{font-size:13px;color:var(--ink-muted);text-align:center;margin-top:20px;line-height:1.8}
 </style>
 </head>
 <body>
@@ -1900,9 +1984,9 @@ img,video,iframe,svg{max-width:100%}
       <span class="cd-first-note">記念すべき<b>はじめての大舞台</b>を、<br>家族で、一緒に。</span>
     </div>
 
-    <!-- アイキャッチ画像（孫と祖父母がランウェイを歩く写真） -->
+    <!-- アイキャッチ画像 -->
     <div class="cd-hero-img">
-      <img src="assets/eyecatch-family.jpg" alt="孫と祖父母がランウェイを歩く KEIGO COLLECTION 2026">
+      <img src="assets/eyecatch-01.jpg" alt="KEIGO COLLECTION 2026 ファッションショー">
     </div>
 
     <div class="cd-eyebrow">開催まで、あと</div>
@@ -1944,7 +2028,7 @@ img,video,iframe,svg{max-width:100%}
   <div class="hero-date-watermark" aria-hidden="true">08.29</div>
   <div class="container hero-inner">
     <h1 class="hero-title fade-in delay-1">シニア×孫世代<br><span class="accent">出演者募集！</span></h1>
-    <div class="hero-mark fade-in delay-2">K E I G O&nbsp;&nbsp;C O L L E C T I O N&nbsp;&nbsp;2 0 2 6</div>
+    <div class="hero-mark fade-in delay-2">イベント名：<b>KEIGO COLLECTION 2026</b></div>
 
     <div class="hero-info fade-in delay-3">
       <div class="hero-info-item">
@@ -1964,7 +2048,7 @@ img,video,iframe,svg{max-width:100%}
     </div>
 
     <div class="hero-ctas fade-in delay-4">
-      <a href="#apply-form" class="btn btn-primary" data-apply-type="performer">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_qwXNlx2AOdpahiw9weMHuAcM5vkJ9z-fh7Y6S13a7HQd-A/viewform" target="_blank" rel="noopener" class="btn btn-primary">
         出演者として応募する
         <span class="btn-arrow">→</span>
       </a>
@@ -1981,72 +2065,67 @@ img,video,iframe,svg{max-width:100%}
   </div>
 </header>
 
-<!-- ============ Stats ============ -->
-<section class="stats">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat reveal stat-special">
-        <div class="stat-num"><span data-count="1000">0</span><small>名</small></div>
-        <div class="stat-label">規模の本物のイベント</div>
-      </div>
-      <div class="stat reveal">
-        <div class="stat-num"><span data-count="30">0</span><small>組</small></div>
-        <div class="stat-label">ランウェイ出演者募集</div>
-      </div>
-      <div class="stat reveal stat-freerow">
-        <div class="stat-num"><span class="stat-nowrap">参加無料</span></div>
-        <div class="stat-label">1日楽しめるイベント！</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ Problems & Answers ============ -->
 <section class="problems" id="problems">
   <div class="container">
     <div class="problems-eyebrow">Your Feelings?</div>
     <h2 class="section-title problems-title"><span class="problems-title-q" aria-hidden="true">？</span>こんな想い、<br><span class="hl-mark">ありませんか？</span></h2>
 
-    <div class="problems-grid">
+    <div class="problems-drops">
 
-      <div class="problem-card reveal">
-        <div class="problem-persona">
-          <span class="problem-persona-tag">FOR SENIORS</span>
-          シニアの方へ
+      <details class="problem-drop">
+        <summary class="problem-toggle">
+          <span class="problem-toggle-titles">
+            <span class="problem-toggle-tag">FOR SENIORS</span>
+            <span class="problem-toggle-title">シニアの方へ</span>
+          </span>
+          <span class="problem-toggle-arrow">▾</span>
+        </summary>
+        <div class="problem-drop-body">
+          <div class="problem-question"><span class="q-label">Q.</span><span class="q-text">「もう、人生で輝く瞬間はないのかな…」</span></div>
+          <div class="problem-arrow">↓</div>
+          <div class="problem-answer">
+            <div class="problem-answer-label">ANSWER</div>
+            <p>着たいお洋服を着て、お孫様と<strong>本物のランウェイ</strong>へ。<br>大勢の前で、人生の主役に。</p>
+          </div>
         </div>
-        <div class="problem-question"><span class="q-label">Q.</span><span class="q-text">「もう、人生で輝く瞬間はないのかな…」</span></div>
-        <div class="problem-arrow">↓</div>
-        <div class="problem-answer">
-          <div class="problem-answer-label">ANSWER</div>
-          <p>着たいお洋服を着て、お孫様と<strong>本物のランウェイ</strong>へ。<br>1,000名の前で、人生の主役に。</p>
-        </div>
-      </div>
+      </details>
 
-      <div class="problem-card problem-card-kids reveal">
-        <div class="problem-persona">
-          <span class="problem-persona-tag">FOR KIDS</span>
-          お子さんの晴れ舞台に！
+      <details class="problem-drop">
+        <summary class="problem-toggle">
+          <span class="problem-toggle-titles">
+            <span class="problem-toggle-tag">FOR KIDS</span>
+            <span class="problem-toggle-title">お子さんの晴れ舞台に！</span>
+          </span>
+          <span class="problem-toggle-arrow">▾</span>
+        </summary>
+        <div class="problem-drop-body">
+          <div class="problem-question"><span class="q-label">Q.</span><span class="q-text">「子どもの特別な瞬間を、形に残したい」</span></div>
+          <div class="problem-arrow">↓</div>
+          <div class="problem-answer">
+            <div class="problem-answer-label">ANSWER</div>
+            <p>お子さんが<strong>タキシードやドレス</strong>を着て、<br>ランウェイを歩く姿を、<br>写真に収めませんか！？</p>
+          </div>
         </div>
-        <div class="problem-question"><span class="q-label">Q.</span><span class="q-text">「子どもの特別な瞬間を、形に残したい」</span></div>
-        <div class="problem-arrow">↓</div>
-        <div class="problem-answer">
-          <div class="problem-answer-label">ANSWER</div>
-          <p>お子さんが<strong>タキシードやドレス</strong>を着て、<br>ランウェイを歩く姿を、<br>写真に収めませんか！？</p>
-        </div>
-      </div>
+      </details>
 
-      <div class="problem-card reveal">
-        <div class="problem-persona">
-          <span class="problem-persona-tag">FOR FAMILY</span>
-          ご家族の方へ
+      <details class="problem-drop">
+        <summary class="problem-toggle">
+          <span class="problem-toggle-titles">
+            <span class="problem-toggle-tag">FOR FAMILY</span>
+            <span class="problem-toggle-title">ご家族の方へ</span>
+          </span>
+          <span class="problem-toggle-arrow">▾</span>
+        </summary>
+        <div class="problem-drop-body">
+          <div class="problem-question"><span class="q-label">Q.</span><span class="q-text">「祖父母に、輝く姿を見せてあげたい」</span></div>
+          <div class="problem-arrow">↓</div>
+          <div class="problem-answer">
+            <div class="problem-answer-label">ANSWER</div>
+            <p>お子さま・お孫さまと<strong>一緒にランウェイ</strong>へ。<br>家族みんなで、一生の思い出になる一日を。</p>
+          </div>
         </div>
-        <div class="problem-question"><span class="q-label">Q.</span><span class="q-text">「祖父母に、輝く姿を見せてあげたい」</span></div>
-        <div class="problem-arrow">↓</div>
-        <div class="problem-answer">
-          <div class="problem-answer-label">ANSWER</div>
-          <p>お子さま・お孫さまと<strong>一緒にランウェイ</strong>へ。<br>家族みんなで、一生の思い出になる一日を。</p>
-        </div>
-      </div>
+      </details>
 
     </div>
 
@@ -2054,7 +2133,7 @@ img,video,iframe,svg{max-width:100%}
       <span class="feelings-cta-deco">✦　✦　✦</span>
       <div class="feelings-cta-headline">思いを、<br>形にするランウェイ。</div>
       <p class="feelings-cta-sub">その一歩を、いま踏み出しませんか。</p>
-      <a href="#apply-form" class="btn btn-primary feelings-cta-btn" data-apply-type="performer">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_qwXNlx2AOdpahiw9weMHuAcM5vkJ9z-fh7Y6S13a7HQd-A/viewform" target="_blank" rel="noopener" class="btn btn-primary feelings-cta-btn">
         出演者として応募する
         <span class="btn-arrow">→</span>
       </a>
@@ -2280,7 +2359,9 @@ img,video,iframe,svg{max-width:100%}
         </div>
       </div>
 
-      <div class="schedule-floor"><span class="schedule-floor-en">4F</span>4階 ブース</div>
+      <details class="schedule-drop">
+        <summary class="schedule-drop-toggle"><span class="schedule-floor-en">4F</span>4階 ブース<span class="schedule-drop-note">タップで一覧</span><span class="schedule-drop-arrow">▾</span></summary>
+        <div class="schedule-drop-body">
       <div class="schedule-item">
         <div class="schedule-time">13:10〜</div>
         <div class="schedule-bar"></div>
@@ -2321,6 +2402,8 @@ img,video,iframe,svg{max-width:100%}
           <div class="schedule-desc">医療・福祉職をめざす方向けの進路相談会</div>
         </div>
       </div>
+        </div>
+      </details>
     <!-- LP_DATA:SCHEDULE_END -->
     </div>
   </div>
@@ -2331,16 +2414,7 @@ img,video,iframe,svg{max-width:100%}
   <div class="container">
     <div class="section-eyebrow">会場について</div>
     <h2 class="section-title">大宮駅東口から、<br>たった<span class="venue-headline-num">5分</span>。</h2>
-    <p class="section-lead">東日本随一のターミナル、<br>「大宮駅」から徒歩5分。<br>雨の日も動線が確保された、駅近アクセスです。</p>
-
-    <!-- Big hero stat -->
-    <div class="venue-hero reveal">
-      <div class="venue-hero-card">
-        <div class="venue-hero-label">大宮駅 東口より</div>
-        <div class="venue-hero-num">徒歩 <span>5</span> 分</div>
-        <div class="venue-hero-sub">レイボックホール ／ 大宮門街</div>
-      </div>
-    </div>
+    <p class="section-lead">大宮駅から、徒歩5分。<br>雨の日でも、濡れずに会場まで行けます。</p>
 
     <!-- Video + Map grid -->
     <div class="venue-media-grid reveal">
@@ -2372,14 +2446,14 @@ img,video,iframe,svg{max-width:100%}
   <div class="container">
     <div class="section-eyebrow">応募フォーム</div>
     <h2 class="section-title">出演者として応募する。</h2>
-    <p class="section-lead">所要時間およそ<strong>3分</strong>。<br>ご応募から3日以内に、<br>担当者よりご連絡いたします。</p>
+    <p class="section-lead">下のボタンから、応募フォームへ。<br>入力は<strong>3分ほど</strong>で完了します。</p>
 
     <!-- Trust signals -->
     <div class="apply-benefits">
       <div class="apply-benefit">
         <div class="apply-benefit-icon">¥0</div>
-        <div class="apply-benefit-title">完全無料</div>
-        <div class="apply-benefit-desc">出演にかかる費用は一切いただきません。<br>衣装・ヘアメイク全て込みです。</div>
+        <div class="apply-benefit-title">参加費0円</div>
+        <div class="apply-benefit-desc">出演料・参加費はいただきません。<br>思い出の一着で、ランウェイへ。</div>
       </div>
       <div class="apply-benefit">
         <div class="apply-benefit-icon">＋</div>
@@ -2393,96 +2467,24 @@ img,video,iframe,svg{max-width:100%}
       </div>
     </div>
 
-    <!-- Performer Form: based on official 応募用紙 -->
-    <form class="apply-form" id="performerForm" data-form="performer" onsubmit="return submitPerformerForm(event)">
+    <!-- 優先的に選考させていただく方 -->
+    <div class="apply-priority" style="max-width:600px;margin:0 auto 28px">
+      <div class="apply-priority-label">優先的に選考させていただく方</div>
+      <ul>
+        <li>ご家族（お子さま・お孫さまなど）とご一緒にご参加いただける方</li>
+        <li>着てみたいお洋服・思い出の一着をお持ちの方</li>
+        <li>当日は公共交通機関等でご自身でご来場いただける方</li>
+      </ul>
+    </div>
 
-      <div class="apply-section-label">▼ 応募者の情報</div>
-
-      <div class="apply-field">
-        <label for="f-name">お名前<span class="required">必須</span></label>
-        <input type="text" id="f-name" name="お名前" required autocomplete="name" placeholder="山田 花子">
-      </div>
-
-      <div class="apply-field-row">
-        <div class="apply-field">
-          <label for="f-age">ご年齢<span class="required">必須</span></label>
-          <input type="number" id="f-age" name="ご年齢" required min="1" max="120" placeholder="75">
-        </div>
-        <div class="apply-field">
-          <label for="f-pair">一緒に歩く方のお名前（予定）<span class="optional">任意</span></label>
-          <input type="text" id="f-pair" name="一緒に歩く方" placeholder="山田 太郎（孫）">
-        </div>
-      </div>
-
-      <div class="apply-field-row">
-        <div class="apply-field">
-          <label for="f-email">メールアドレス<span class="required">必須</span></label>
-          <input type="email" id="f-email" name="メール" required autocomplete="email" placeholder="example@email.com">
-        </div>
-        <div class="apply-field">
-          <label for="f-tel">お電話番号<span class="required">必須</span></label>
-          <input type="tel" id="f-tel" name="電話" required autocomplete="tel" placeholder="090-1234-5678">
-        </div>
-      </div>
-
-      <div class="apply-section-label">▼ あなたの想い</div>
-
-      <div class="apply-field">
-        <label for="f-reason">ランウェイを歩きたい想い・理由<span class="required">必須</span></label>
-        <textarea id="f-reason" name="想い・理由" rows="4" required placeholder="「歩きたい」という想いをそのままお書きください。うまく書けなくても大丈夫です。あなたの言葉が一番です。"></textarea>
-      </div>
-
-      <div class="apply-field">
-        <label for="f-clothes">着てみたいお洋服・思い出の一着<span class="required">必須</span></label>
-        <textarea id="f-clothes" name="お洋服" rows="4" required placeholder="着てみたいお洋服、思い出の一着について、ご自由にお書きください。"></textarea>
-      </div>
-
-      <div class="apply-section-label">▼ ご確認事項<span class="required">全て必須</span></div>
-
-      <div class="apply-checklist">
-        <label class="apply-check">
-          <input type="checkbox" name="家族と参加" value="同意" required>
-          <span>ご家族（お子さま・お孫さまなど）とご一緒にご参加いただけます</span>
-        </label>
-        <label class="apply-check">
-          <input type="checkbox" name="自力来場" value="同意" required>
-          <span>当日は公共交通機関等でご自身でご来場いただけます（送迎はございません）</span>
-        </label>
-        <label class="apply-check">
-          <input type="checkbox" name="お洋服あり" value="同意" required>
-          <span>着てみたいお洋服・思い出の一着があります</span>
-        </label>
-        <label class="apply-check">
-          <input type="checkbox" name="広報利用" value="同意" required>
-          <span>写真・映像の広報物（SNS・チラシ・プレスリリース等）への掲載に同意します</span>
-        </label>
-        <label class="apply-check">
-          <input type="checkbox" name="選考了承" value="同意" required>
-          <span>応募多数の場合、主催者による選考があることを了承します</span>
-        </label>
-        <label class="apply-check">
-          <input type="checkbox" name="事前打合せ" value="同意" required>
-          <span>当日のスケジュール・事前のお打ち合わせへの参加が可能です</span>
-        </label>
-      </div>
-
-      <div class="apply-priority">
-        <div class="apply-priority-label">優先的に選考させていただく方</div>
-        <ul>
-          <li>ご家族（お子さま・お孫さまなど）とご一緒にご参加いただける方</li>
-          <li>着てみたいお洋服をお持ちの方</li>
-          <li>当日は公共交通機関等でご自身でご来場いただける方</li>
-        </ul>
-      </div>
-
-      <div class="apply-submit-wrap">
-        <button type="submit" class="btn btn-primary apply-submit">
-          応募内容を送信する
-          <span class="btn-arrow">→</span>
-        </button>
-        <p class="apply-disclaimer">送信ボタンを押すと、入力内容がメール用フォームに転記されます。<br>ご記入内容を確認の上、送信を完了してください。</p>
-      </div>
-    </form>
+    <!-- Google フォームへ誘導 -->
+    <div class="apply-formcta">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_qwXNlx2AOdpahiw9weMHuAcM5vkJ9z-fh7Y6S13a7HQd-A/viewform" target="_blank" rel="noopener" class="btn btn-primary apply-formcta-btn">
+        応募フォームへ進む
+        <span class="btn-arrow">→</span>
+      </a>
+      <p class="apply-formcta-note">Googleフォームが新しいタブで開きます。<br>入力はおよそ3分で完了します。</p>
+    </div>
 
     <!-- Alternative contact -->
     <div class="apply-alt">
@@ -2497,7 +2499,7 @@ img,video,iframe,svg{max-width:100%}
     <div class="apply-next">
       <div class="apply-next-title">ご応募からの流れ</div>
       <ol class="apply-next-steps">
-        <li><strong>応募送信</strong>　メールフォームで内容を送信</li>
+        <li><strong>応募送信</strong>　応募フォームに入力して送信</li>
         <li><strong>3日以内にご連絡</strong>　担当者よりお電話またはメールにて</li>
         <li><strong>事前面談</strong>　お洋服の打ち合わせ、当日のスケジュール案内</li>
         <li><strong>本番</strong>　2026年8月29日（土）、ランウェイへ</li>
@@ -2510,32 +2512,45 @@ img,video,iframe,svg{max-width:100%}
 <section class="sponsor" id="sponsor">
   <div class="container">
     <div class="section-eyebrow">企業協賛のお願い</div>
-    <h2 class="section-title">協賛してくださる<br>企業を募集します！</h2>
-    <p class="section-lead">このイベントを一緒に盛り上げてくださる企業様を募集しています。<br>当日の目玉企画「<strong>モンスターカプセル</strong>」の景品として、<br>御社の商品・サービスをご提供いただけませんか？</p>
 
-    <div class="sponsor-ways">
-      <div class="way-card reveal">
-        <div class="way-num">I</div>
-        <div class="way-tag">物品協賛</div>
-        <div class="way-title">商品・グッズの<br>ご提供</div>
-        <div class="way-desc">御社の商品やノベルティを、巨大ガチャ「モンスターカプセル」の景品としてご提供いただきます。1,000名規模の来場者へ、御社のブランドをお届けします。</div>
+    <details class="sponsor-drop">
+      <summary class="sponsor-toggle">
+        <span class="sponsor-toggle-label">
+          <span class="sponsor-toggle-tag">FOR SPONSORS</span>
+          <span class="sponsor-toggle-title">協賛してくださる企業を募集します！</span>
+        </span>
+        <span class="sponsor-toggle-arrow">▾</span>
+      </summary>
+      <div class="sponsor-drop-body">
+        <p class="section-lead" style="margin-bottom:28px!important">このイベントを一緒に盛り上げてくださる企業様を募集しています。<br>当日の目玉企画「<strong>モンスターカプセル</strong>」の景品として、<br>御社の商品・サービスをご提供いただけませんか？</p>
+
+        <div class="sponsor-ways">
+          <div class="way-card reveal">
+            <div class="way-num">I</div>
+            <div class="way-tag">物品協賛</div>
+            <div class="way-title">商品・グッズの<br>ご提供</div>
+            <div class="way-desc">御社の商品やノベルティを、巨大ガチャ「モンスターカプセル」の景品としてご提供いただきます。多くの来場者へ、御社のブランドをお届けします。</div>
+          </div>
+          <div class="way-card reveal">
+            <div class="way-num">II</div>
+            <div class="way-tag">チケット協賛</div>
+            <div class="way-title">体験・サービス<br>チケットのご提供</div>
+            <div class="way-desc">体験・サービスの無料チケットや割引券を景品としてご提供いただきます。来場者が御社のサービスを実際に体験するきっかけになります。</div>
+          </div>
+        </div>
+
+        <p class="sponsor-note">いただいた景品は、すべて2mの巨大ガチャ「<strong>モンスターカプセル</strong>」の中へ。<br>来場者が会場のブースを巡るきっかけになり、御社の認知拡大にもつながります。</p>
+
+        <div class="cta-buttons">
+          <a href="mailto:omotenashi@rp-keigo.com?subject=KEIGO%20COLLECTION%202026%20協賛のお問い合わせ" class="btn btn-primary">
+            協賛について相談する
+            <span class="btn-arrow">→</span>
+          </a>
+        </div>
+
+        <p class="sponsor-drop-note-after">※ 協賛企業様向けの詳しいご案内ページは、後日あらためて公開予定です。</p>
       </div>
-      <div class="way-card reveal">
-        <div class="way-num">II</div>
-        <div class="way-tag">チケット協賛</div>
-        <div class="way-title">体験・サービス<br>チケットのご提供</div>
-        <div class="way-desc">体験・サービスの無料チケットや割引券を景品としてご提供いただきます。来場者が御社のサービスを実際に体験するきっかけになります。</div>
-      </div>
-    </div>
-
-    <p class="sponsor-note">いただいた景品は、すべて2mの巨大ガチャ「<strong>モンスターカプセル</strong>」の中へ。<br>来場者が会場のブースを巡るきっかけになり、御社の認知拡大にもつながります。</p>
-
-    <div class="cta-buttons">
-      <a href="mailto:omotenashi@rp-keigo.com?subject=KEIGO%20COLLECTION%202026%20協賛のお問い合わせ" class="btn btn-primary">
-        協賛について相談する
-        <span class="btn-arrow">→</span>
-      </a>
-    </div>
+    </details>
   </div>
 </section>
 
@@ -2546,7 +2561,7 @@ img,video,iframe,svg{max-width:100%}
     <p class="cta-lead">出演者として、ご来場者として。<br>あなたなりの関わり方で、この一日をご一緒に。</p>
 
     <div class="cta-buttons">
-      <a href="#apply-form" class="btn btn-primary">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_qwXNlx2AOdpahiw9weMHuAcM5vkJ9z-fh7Y6S13a7HQd-A/viewform" target="_blank" rel="noopener" class="btn btn-primary">
         出演者として応募する
         <span class="btn-arrow">→</span>
       </a>
